@@ -7,7 +7,7 @@ function formatDate(dateStr) {
   });
 }
 
-export default function QuestionCard({ question, currentUserId, onDelete, onEdit, onView }) {
+export default function QuestionCard({ question, currentUserId, onDelete, onEdit, onView, onChat }) {
   const [editing,  setEditing]  = useState(false);
   const [editText, setEditText] = useState(question.text);
   const [saving,   setSaving]   = useState(false);
@@ -104,6 +104,15 @@ export default function QuestionCard({ question, currentUserId, onDelete, onEdit
           <p><strong>Role:</strong> {question.author.role || '-'}</p>
           <p><strong>Phone:</strong> {question.author.phone || '-'}</p>
           <p><strong>IT Number:</strong> {question.author.itNumber || '-'}</p>
+          {question.author._id !== currentUserId && (
+            <button
+              type="button"
+              className="btn btn-secondary btn-chat"
+              onClick={() => onChat?.(question.author._id)}
+            >
+              Chat in Inbox
+            </button>
+          )}
         </div>
       )}
     </div>

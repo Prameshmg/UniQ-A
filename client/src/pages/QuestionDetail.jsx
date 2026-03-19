@@ -88,6 +88,15 @@ export default function QuestionDetail() {
             <p><strong>Role:</strong> {question.author.role || '-'}</p>
             <p><strong>Phone:</strong> {question.author.phone || '-'}</p>
             <p><strong>IT Number:</strong> {question.author.itNumber || '-'}</p>
+            {question.author._id !== user?.id && (
+              <button
+                type="button"
+                className="btn btn-secondary btn-chat"
+                onClick={() => navigate(`/inbox?userId=${question.author._id}`)}
+              >
+                Chat in Inbox
+              </button>
+            )}
           </div>
         )}
         <p className="detail-text">{question.text}</p>
@@ -141,6 +150,15 @@ export default function QuestionDetail() {
                   <p><strong>Role:</strong> {c.author.role || '-'}</p>
                   <p><strong>Phone:</strong> {c.author.phone || '-'}</p>
                   <p><strong>IT Number:</strong> {c.author.itNumber || '-'}</p>
+                  {c.author._id !== user?.id && (
+                    <button
+                      type="button"
+                      className="btn btn-secondary btn-chat"
+                      onClick={() => navigate(`/inbox?userId=${c.author._id}`)}
+                    >
+                      Chat in Inbox
+                    </button>
+                  )}
                 </div>
               )}
               <p className="comment-text">{c.text}</p>

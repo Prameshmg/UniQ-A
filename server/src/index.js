@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth');
 const questionRoutes = require('./routes/questions');
 const commentRoutes = require('./routes/comments');
 const profileRoutes = require('./routes/profile');
+const inboxRoutes = require('./routes/inbox');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/api', authRoutes);
 app.use('/api/questions', questionRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api', profileRoutes);
+app.use('/api/inbox', inboxRoutes);
 
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/quiz';

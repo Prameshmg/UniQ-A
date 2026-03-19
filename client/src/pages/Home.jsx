@@ -100,6 +100,7 @@ export default function Home() {
           onDelete={handleDelete}
           onEdit={handleEdit}
           onView={() => navigate(`/questions/${q._id}`)}
+          onChat={(userId) => navigate(`/inbox?userId=${userId}`)}
         />
       ))}
     </div>

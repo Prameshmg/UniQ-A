@@ -108,21 +108,15 @@ Base URL: `http://localhost:5000/api`
 
 ## Setup Instructions
 
-### 1. Clone and open project
 
-```bash
-git clone <your-repo-url>
-cd QuizBee
-```
+### 1. Install server dependencies
 
-### 2. Install server dependencies
-
-```bash
+```Terminal
 cd server
 npm install
 ```
 
-### 3. Configure server environment
+### 2. Configure server environment
 
 Create `server/.env` with:
 
@@ -132,9 +126,9 @@ MONGODB_URI=mongodb://127.0.0.1:27017/quiz
 JWT_SECRET=quiz_jwt_secret_key_change_in_production
 ```
 
-### 4. Install client dependencies
+### 3. Install client dependencies
 
-```bash
+```Terminal
 cd ../client
 npm install
 ```
@@ -143,14 +137,14 @@ npm install
 
 ### Start backend
 
-```bash
+```Terminal
 cd server
 npm run dev
 ```
 
 ### Start frontend (new terminal)
 
-```bash
+```Terminal
 cd client
 npm run dev
 ```
@@ -163,14 +157,6 @@ Backend URL:
 
 ## Notes
 
-- JWT token is required for protected routes.
 - Questions can only be edited/deleted by their author.
 - Deleting a question also deletes its comments.
 
-## Future Improvements
-
-- Add pagination for question feed
-- Add search/filter by role or keywords
-- Add input validation library (Joi/Zod)
-- Add unit/integration tests
-- Add Docker support
